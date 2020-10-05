@@ -58,7 +58,15 @@
                         <configuration>
                             <rules>
                                 <rule>
-                                    <element>BUNDLE</element>
+                                    <element>METHOD</element>
+                                    <excludes>
+                                        <exclude>*ru.netology.domain.Smartphone.equals(java.lang.Object)</exclude>
+                                        <exclude>*ru.netology.domain.Smartphone.equals(java.lang.Object)</exclude>
+                                        <exclude>*ru.netology.domain.Book.equals(java.lang.Object)</exclude>
+                                        <exclude>*ru.netology.domain.Product.equals(java.lang.Object)</exclude>
+                                        <exclude>*ru.netology.repository.ProductRepository.removeById(int)</exclude>
+                                        <exclude>ru.netology.manager.ProductManager.matches(ru.netology.domain.Product, java.lang.String)</exclude>
+                                    </excludes>
                                     <limits>
                                         <limit>
                                             <counter>BRANCH</counter>
