@@ -1,5 +1,6 @@
 package ru.netology.manager;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -30,13 +31,15 @@ class ProductManagerTest {
     private Smartphone secondPhone = new Smartphone(5, "Samsung Galaxy", 58000, "Samsung");
     private Smartphone thirdPhone = new Smartphone(6, "IPhone 7", 25000, "Apple");
 
+
     @Test
     public void shouldFindBookByAuthorWithIgnoreCase() {
 
         String searchText = "ROBERT Kiyosaki";
-        Product[] returned = new Product[]{firstBook, thirdBook};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
+
 
         Product[] expected = new Product[]{firstBook, thirdBook};
         Product[] actual = productManager.searchBy(searchText);
@@ -47,7 +50,7 @@ class ProductManagerTest {
     @Test
     public void shouldFindBookByNameWithIgnoreCase() {
         String searchText = "diamond WISdom";
-        Product[] returned = new Product[]{secondBook};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
@@ -60,7 +63,7 @@ class ProductManagerTest {
     @Test
     public void shouldNotFindBookByNameWithIgnoreCase2() {
         String searchText = "rich";
-        Product[] returned = new Product[]{};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
@@ -74,7 +77,7 @@ class ProductManagerTest {
     @Test
     public void shouldFindSmartphoneByNameWithIgnoreCase() {
         String searchText = "iphonE 7";
-        Product[] returned = new Product[]{thirdPhone};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
@@ -87,7 +90,7 @@ class ProductManagerTest {
     @Test
     public void shouldFindAllSmartphonesWithIgnoreCase2() {
         String searchText = "apple";
-        Product[] returned = new Product[]{firstPhone, thirdPhone};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
@@ -100,7 +103,7 @@ class ProductManagerTest {
     @Test
     public void shouldFindSmartphoneByManufacturerWithIgnoreCase() {
         String searchText = "SaMsUnG";
-        Product[] returned = new Product[]{secondPhone};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
@@ -114,7 +117,7 @@ class ProductManagerTest {
     @Test
     public void shouldNotFindProductWithIgnoreCase() {
         String searchText = "Michael";
-        Product[] returned = new Product[]{};
+        Product[] returned = new Product[]{firstBook, secondBook, thirdBook, firstPhone, secondPhone, thirdPhone};
 
         doReturn(returned).when(repository).getAllProducts();
 
