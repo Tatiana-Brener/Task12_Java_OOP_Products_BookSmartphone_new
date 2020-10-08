@@ -2,9 +2,7 @@ package ru.netology.manager;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import ru.netology.domain.Book;
 import ru.netology.domain.Product;
-import ru.netology.domain.Smartphone;
 import ru.netology.repository.ProductRepository;
 
 @NoArgsConstructor
@@ -16,31 +14,6 @@ public class ProductManager {
     public void addProduct(Product addedProduct) {
         repository.saveProduct(addedProduct);
     }
-
-//    public boolean matches(Product product, String searchText) {
-//
-//        if (product instanceof Book) {
-//            Book book = (Book) product;
-//            if (book.getName().equalsIgnoreCase(searchText)) {
-//                return true;
-//            }
-//            if (book.getAuthor().equalsIgnoreCase(searchText)) {
-//                return true;
-//            }
-//        }
-//
-//        if (product instanceof Smartphone) {
-//            Smartphone smartphone = (Smartphone) product;
-//            if (smartphone.getName().equalsIgnoreCase(searchText)) {
-//                return true;
-//            }
-//            if (smartphone.getManufacturer().equalsIgnoreCase(searchText)) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
 
     public Product[] searchBy(String searchText) {
         Product[] result = new Product[0];
